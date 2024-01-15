@@ -1,9 +1,9 @@
-#Part 1: Running a Docker Container with TimescaleDB, populating and querying data directly
+# Part 1: Running a Docker Container with TimescaleDB, populating and querying data directly
 
-##TimescaleDB tutorial series
+## TimescaleDB tutorial series
 https://www.youtube.com/watch?v=vm_hcP4CDbA&list=PLsceB9ac9MHScvW5NBuCaYafW87hP-Gi2&index=1&pp=iAQB
 
-##Terms
+## Terms
 Hypertable - regular table but with auto time/space partitioning, extra functionality, and TimescaleDB manages it for you.
 
 Chunk - child tables inside hypertable. Organized via time. Set chunk time e.g. one day of data
@@ -19,7 +19,7 @@ Compression - compresses chunks. default is to use time column unless otherwise 
 Retention policy - deletes older data. make sure to offset from continuous aggregate time frame.
 
 
-##Useful commands
+## Useful commands
 See ports in use
 ```shell
 sudo netstat -tulpn | grep LISTEN
@@ -31,20 +31,20 @@ Kill service using port
 sudo fuser -k 81/udp
 ```
 
-##Database client
+## Database client
 Table plus?
 
 D Beaver
 https://dbeaver.io/download/
 
 
-##Timescale DB container
+## Timescale DB container
 https://hub.docker.com/r/timescale/timescaledb
 V 2.13.1-pg16
 timescale/timescaledb:2.13.1-pg16
 
 
-##Commands for experimenting with timescaledb in docker
+## Commands for experimenting with timescaledb in docker
 
 ```shell
 docker pull timescale/timescaledb:2.13.1-pg16

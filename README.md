@@ -1,4 +1,4 @@
-#TimescaleDB sandbox
+# TimescaleDB sandbox
 
 This repo is set up to familiarize myself with TimescaleDB.
 
