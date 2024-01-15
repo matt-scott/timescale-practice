@@ -1,0 +1,152 @@
+In DBeaver
+
+Open new console for db you're working with
+
+Run this to create a table
+
+CREATE TABLE stocks_real_time (
+  time TIMESTAMPTZ NOT NULL,
+  symbol TEXT NOT NULL,
+  price DOUBLE PRECISION NULL,
+  day_volume INT NULL
+);
+
+Run to create a hypertable (can add additional arguments like chunk time)
+
+SELECT create_hypertable('stocks_real_time','time');
+
+In example, we're querying a lot on the company symbol, so we'll create an index on it
+
+CREATE INDEX ix_symbol_time ON stocks_real_time (symbol, time DESC);
+
+CREATE TABLE company (
+  symbol text NOT NULL,
+  name text NOT NULL
+);
+
+SELECT * FROM stocks_real_time srt
+LIMIT 10;
+
+- Data from last day
+
+SELECT * FROM stocks_real_time srt
+WHERE time > now() - INTERVAL '1 day';
+
+- Data from newest entries, price descending
+
+SELECT * FROM stocks_real_time srt
+ORDER BY time DESC, price DESC
+LIMIT 10;
+
+
+- Average trade price for apple stock over last 2 days
+
+SELECT
+avg(price)
+FROM stocks_real_time srt
+    JOIN company c ON c.symbol = srt.symbol
+WHERE c.name = 'Apple' AND time > now() - INTERVAL '6 days';
+
+
+- Get first and last value 
+
+SELECT symbol, first(price,time), last(price,time)
+FROM stocks_real_time srt
+WHERE time > now() - INTERVAL '6 days'
+GROUP BY symbol;
+
+
+- Aggregate by an arbitrary length of time using time_bucket
+
+SELECT
+    time_bucket('1 day', time) AS bucket,
+    symbol,
+    avg(price)
+FROM stocks_real_time srt
+WHERE time > now() - INTERVAL '1 week'
+GROUP BY bucket, symbol
+ORDER BY bucket, symbol;
+
+
+
+Set up continuous Aggregate
+
+Step 1 - set up query to use for the aggregate
+
+SELECT
+  time_bucket('1 day', "time") AS day,
+  symbol,
+  max(price) AS high,
+  first(price, time) AS open,
+  last(price, time) AS close,
+  min(price) AS low
+FROM stocks_real_time srt
+GROUP BY day, symbol
+ORDER BY day DESC, symbol
+
+Step 2 - Create continuous aggregate
+
+CREATE MATERIALIZED VIEW stock_candlestick_daily
+WITH (timescaledb.continuous) AS
+SELECT
+  time_bucket('1 day', "time") AS day,
+  symbol,
+  max(price) AS high,
+  first(price, time) AS open,
+  last(price, time) AS close,
+  min(price) AS low
+FROM stocks_real_time srt
+GROUP BY day, symbol
+
+
+
+Example query
+SELECT * FROM stock_candlestick_daily
+  ORDER BY day DESC, symbol;
+
+
+Set auto refresh policy for the continuous aggregate
+
+SELECT add_continuous_aggregate_policy('stock_candlestick_daily',
+    start_offset => INTERVAL '3 days',
+    end_offset => INTERVAL '1 hour',
+    schedule_interval => INTERVAL '1 days');
+
+
+Manually refresh data for continuous aggregate
+
+CALL refresh_continuous_aggregate('stock_candlestick_daily',now() - interval '1 week', now());
+
+
+
+Compression
+
+Enable compression. Once you do this, you cannot delete data?
+
+ALTER TABLE stocks_real_time SET (
+timescaledb.compress,
+timescaledb.compress_orderby = 'time DESC'
+timescaledb.compress_segmentby = 'symbol'
+);
+
+
+Automatic compression policy
+
+In this case, we use 2 weeks because we are saying data older than 2 weeks should not be changed.
+
+SELECT add_compression_policy('stocks_real_time', INTERVAL, '2 weeks');
+
+
+Manual compression
+
+SELECT compress_chunk(i)
+FROM show_chunks('stocks_real_time', older_than => INTERVAL '2 weeks') i;
+
+
+
+Retention policy - auto
+Can also manually set up manual data drop with upper and lower bounds
+SELECT add_retention_policy('stocks_real_time', INTERVAL '3 weeks');
+
+Show all auto jobs set up
+SELECT * FROM timescaledb_information.jobs;
