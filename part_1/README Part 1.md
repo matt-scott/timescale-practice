@@ -50,7 +50,7 @@ timescale/timescaledb:2.13.1-pg16
 docker pull timescale/timescaledb:2.13.1-pg16
 ```
 
-May need to add 127.0.0.1:5432 to the -p option? From video tutorial
+May need to add 127.0.0.1:5432 to the -p option? NEED PASSWORD. See below
 
 ```shell
 docker run -d --name timescaledb -v /timescale-data/:/var/lib/postgresql/data -p 127.0.0.1:5432:5432 timescale/timescaledb:2.13.1-pg16
