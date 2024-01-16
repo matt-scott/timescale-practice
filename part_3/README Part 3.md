@@ -125,6 +125,8 @@ Part 10 - Modify model and migration files according to needs
 See migration and model file for modifications to these files
 temperature_sensor_data
 
+NOTE: NEED TO CHANGE REQUIREMENTS ON DECIMAL FIELDS (SEE PRESSURE SENSOR DATA)
+
 Part 11 - run sequelize migrate
 
 ```shell
@@ -157,3 +159,27 @@ Part 14 - migrate hypertable
 ```shell
 npx sequelize db:migrate
 ```
+
+Part 15 - generate seed data to play with and verify table config
+
+See seeder file in part 3
+
+```shell
+npx sequelize seed:generate --name temp-data
+```
+
+Part 16 - run seeder file after setup
+
+```shell
+npx sequelize-cli db:seed:all
+```
+
+INSERT INTO conditions
+  VALUES
+    (NOW(), 'office', 70.0, 50.0),
+    (NOW(), 'basement', 66.5, 60.0),
+    (NOW(), 'garage', 77.0, 65.2);
+
+INSERT INTO temperature_sensor_data
+    VALUES
+        (NOW(), 'family', 'temperature', 100, 34.48, 255, 9, 83.2, 21.51, 3115);

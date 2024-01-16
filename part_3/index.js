@@ -2,6 +2,7 @@ const express = require('express')
 const Sequelize = require('sequelize')
 const app = express()
 const port = 3000;
+const { temperature_sensor_data } = require('./models');
 
 
 const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/postgres',
@@ -17,7 +18,16 @@ const sequelize = new Sequelize('postgres://postgres:password@localhost:5432/pos
     })
 
 app.use(express.json());
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', async(req, res) => {
+    // const messages = await temperature_sensor_data.findAll();
+    let data = [];
+
+    data = await temperature_sensor_data.findAll({
+        attributes: ['timestamp', 'sensor_location','measurement_type','battery','humidity','linkquality','power_outage_count','temperature','pressure','voltage'],
+    });
+
+    res.json(data);
+})
 
 sequelize.authenticate().then(() => {
     console.log('Connection has been established successfully.');
