@@ -1,8 +1,8 @@
 const temps = [
     {
-        time: 1705299225000,
-        location: 'family',
-        measurement: 'temperature',
+        timestamp: 1705299225000,
+        sensor_location: 'family',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -12,9 +12,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705299225000,
-        location: 'dining',
-        measurement: 'temperature',
+        timestamp: 1705299225000,
+        sensor_location: 'dining',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -24,9 +24,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705299225000,
-        location: 'bedroom',
-        measurement: 'temperature',
+        timestamp: 1705299225000,
+        sensor_location: 'bedroom',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -36,9 +36,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705302825000,
-        location: 'family',
-        measurement: 'temperature',
+        timestamp: 1705302825000,
+        sensor_location: 'family',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -48,9 +48,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705302825000,
-        location: 'dining',
-        measurement: 'temperature',
+        timestamp: 1705302825000,
+        sensor_location: 'dining',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -60,9 +60,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705302825000,
-        location: 'bedroom',
-        measurement: 'temperature',
+        timestamp: 1705302825000,
+        sensor_location: 'bedroom',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -72,9 +72,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705306425000,
-        location: 'family',
-        measurement: 'temperature',
+        timestamp: 1705306425000,
+        sensor_location: 'family',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -84,9 +84,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705306425000,
-        location: 'dining',
-        measurement: 'temperature',
+        timestamp: 1705306425000,
+        sensor_location: 'dining',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -96,9 +96,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705306425000,
-        location: 'bedroom',
-        measurement: 'temperature',
+        timestamp: 1705306425000,
+        sensor_location: 'bedroom',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -108,9 +108,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705310025000,
-        location: 'family',
-        measurement: 'temperature',
+        timestamp: 1705310025000,
+        sensor_location: 'family',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -120,9 +120,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705310025000,
-        location: 'dining',
-        measurement: 'temperature',
+        timestamp: 1705310025000,
+        sensor_location: 'dining',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -132,9 +132,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705310025000,
-        location: 'bedroom',
-        measurement: 'temperature',
+        timestamp: 1705310025000,
+        sensor_location: 'bedroom',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -144,9 +144,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705313625000,
-        location: 'family',
-        measurement: 'temperature',
+        timestamp: 1705313625000,
+        sensor_location: 'family',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -156,9 +156,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705313625000,
-        location: 'dining',
-        measurement: 'temperature',
+        timestamp: 1705313625000,
+        sensor_location: 'dining',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -168,9 +168,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705313625000,
-        location: 'bedroom',
-        measurement: 'temperature',
+        timestamp: 1705313625000,
+        sensor_location: 'bedroom',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -180,9 +180,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705317225000,
-        location: 'family',
-        measurement: 'temperature',
+        timestamp: 1705317225000,
+        sensor_location: 'family',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -192,9 +192,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705317225000,
-        location: 'dining',
-        measurement: 'temperature',
+        timestamp: 1705317225000,
+        sensor_location: 'dining',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -204,9 +204,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705317225000,
-        location: 'bedroom',
-        measurement: 'temperature',
+        timestamp: 1705317225000,
+        sensor_location: 'bedroom',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -216,9 +216,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705324425000,
-        location: 'family',
-        measurement: 'temperature',
+        timestamp: 1705324425000,
+        sensor_location: 'family',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -228,9 +228,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705324425000,
-        location: 'dining',
-        measurement: 'temperature',
+        timestamp: 1705324425000,
+        sensor_location: 'dining',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -240,9 +240,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705324425000,
-        location: 'bedroom',
-        measurement: 'temperature',
+        timestamp: 1705324425000,
+        sensor_location: 'bedroom',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -252,9 +252,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705320825000,
-        location: 'family',
-        measurement: 'temperature',
+        timestamp: 1705320825000,
+        sensor_location: 'family',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -264,9 +264,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705320825000,
-        location: 'dining',
-        measurement: 'temperature',
+        timestamp: 1705320825000,
+        sensor_location: 'dining',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -276,9 +276,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705320825000,
-        location: 'bedroom',
-        measurement: 'temperature',
+        timestamp: 1705320825000,
+        sensor_location: 'bedroom',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -288,9 +288,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705328025000,
-        location: 'family',
-        measurement: 'temperature',
+        timestamp: 1705328025000,
+        sensor_location: 'family',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -300,9 +300,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705328025000,
-        location: 'dining',
-        measurement: 'temperature',
+        timestamp: 1705328025000,
+        sensor_location: 'dining',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -312,9 +312,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705328025000,
-        location: 'bedroom',
-        measurement: 'temperature',
+        timestamp: 1705328025000,
+        sensor_location: 'bedroom',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -324,9 +324,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705331625000,
-        location: 'family',
-        measurement: 'temperature',
+        timestamp: 1705331625000,
+        sensor_location: 'family',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -336,9 +336,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705331625000,
-        location: 'dining',
-        measurement: 'temperature',
+        timestamp: 1705331625000,
+        sensor_location: 'dining',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
@@ -348,9 +348,9 @@ const temps = [
         voltage: 3115
     },
     {
-        time: 1705331625000,
-        location: 'bedroom',
-        measurement: 'temperature',
+        timestamp: 1705331625000,
+        sensor_location: 'bedroom',
+        measurement_type: 'temperature',
         battery: 100,
         humidity: 34.48,
         linkquality: 255,
