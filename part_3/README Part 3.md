@@ -160,6 +160,11 @@ Part 14 - migrate hypertable
 npx sequelize db:migrate
 ```
 
+-----------------------------------------------------------
+SEEDERS DO NOT WORK WITH HYPERTABLE SETUP??
+Use timescaledb documentation to see how to add data to table
+-----------------------------------------------------------
+
 Part 15 - generate seed data to play with and verify table config
 
 See seeder file in part 3
